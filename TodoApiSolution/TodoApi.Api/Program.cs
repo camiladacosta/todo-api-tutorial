@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // 1. Add services
 builder.Services.AddDbContext<TodoDbContext>(opt =>
-    opt.UseInMemoryDatabase("TodoList")); // Using In-Memory for now
+    opt.UseNpgsql(connectionString)); // Use Postgres!
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
