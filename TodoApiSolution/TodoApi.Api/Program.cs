@@ -1,41 +1,61 @@
+// TodoApi.Api/Program.cs
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// 1. Add services
+builder.Services.AddDbContext<TodoDbContext>(opt =>
+    opt.UseInMemoryDatabase("TodoList")); // Using In-Memory for now
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// 2. Define API endpoints
+app.MapGet("/todos", async (TodoDbContext db) =>
+    await db.TodoItems.ToListAsync());
 
-var summaries = new[]
+app.MapGet("/todos/{id}", async (int id, TodoDbContext db) =>
+    await db.TodoItems.FindAsync(id)
+        is TodoItem todo
+            ? Results.Ok(todo)
+            : Results.NotFound());
+
+app.MapPost("/todos", async (TodoItem todo, TodoDbContext db) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    db.TodoItems.Add(todo);
+    await db.SaveChangesAsync();
+    return Results.Created($"/todos/{todo.Id}", todo);
+});
 
-app.MapGet("/weatherforecast", () =>
+app.MapPut("/todos/{id}", async (int id, TodoItem inputTodo, TodoDbContext db) =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+    var todo = await db.TodoItems.FindAsync(id);
+    if (todo is null) return Results.NotFound();
 
+    todo.Title = inputTodo.Title;
+    todo.IsComplete = inputTodo.IsComplete;
+
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
+
+app.MapDelete("/todos/{id}", async (int id, TodoDbContext db) =>
+{
+    if (await db.TodoItems.FindAsync(id) is TodoItem todo)
+    {
+        db.TodoItems.Remove(todo);
+        await db.SaveChangesAsync();
+        return Results.Ok(todo);
+    }
+    return Results.NotFound();
+});
+
+// 3. Run the application
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
