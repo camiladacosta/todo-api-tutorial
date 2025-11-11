@@ -131,3 +131,7 @@ E:\Projects\C#\TodoApiSolution\TodoApi.Api\obj\Debug\net9.0\TodoApi.Api.genrunti
 E:\Projects\C#\TodoApiSolution\TodoApi.Api\obj\Debug\net9.0\ref\TodoApi.Api.dll
 E:\Projects\C#\TodoApiSolution\TodoApi.Api\bin\Debug\net9.0\Npgsql.dll
 E:\Projects\C#\TodoApiSolution\TodoApi.Api\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\Projects\C#\TodoApiSolution\TodoApi.Api\bin\Debug\net9.0\TodoApi.Core.dll
+E:\Projects\C#\TodoApiSolution\TodoApi.Api\bin\Debug\net9.0\TodoApi.Infrastructure.dll
+E:\Projects\C#\TodoApiSolution\TodoApi.Api\bin\Debug\net9.0\TodoApi.Core.pdb
+E:\Projects\C#\TodoApiSolution\TodoApi.Api\bin\Debug\net9.0\TodoApi.Infrastructure.pdb

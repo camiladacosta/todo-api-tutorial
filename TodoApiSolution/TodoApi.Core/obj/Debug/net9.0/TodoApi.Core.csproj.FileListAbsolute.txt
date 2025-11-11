@@ -1,0 +1,12 @@
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\bin\Debug\net9.0\TodoApi.Core.deps.json
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\bin\Debug\net9.0\TodoApi.Core.dll
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\bin\Debug\net9.0\TodoApi.Core.pdb
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\TodoApi.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\TodoApi.Core.AssemblyInfoInputs.cache
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\TodoApi.Core.AssemblyInfo.cs
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\TodoApi.Core.csproj.CoreCompileInputs.cache
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\TodoApi.Core.sourcelink.json
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\TodoApi.Core.dll
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\refint\TodoApi.Core.dll
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\TodoApi.Core.pdb
+E:\Projects\C#\TodoApiSolution\TodoApi.Core\obj\Debug\net9.0\ref\TodoApi.Core.dll

@@ -1020,6 +1020,30 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "TodoApi.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/TodoApi.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TodoApi.Core.dll": {}
+        }
+      },
+      "TodoApi.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
+          "TodoApi.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TodoApi.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TodoApi.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -3238,14 +3262,25 @@
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "TodoApi.Core/1.0.0": {
+      "type": "project",
+      "path": "../TodoApi.Core/TodoApi.Core.csproj",
+      "msbuildProject": "../TodoApi.Core/TodoApi.Core.csproj"
+    },
+    "TodoApi.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../TodoApi.Infrastructure/TodoApi.Infrastructure.csproj",
+      "msbuildProject": "../TodoApi.Infrastructure/TodoApi.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.AspNetCore.OpenApi >= 9.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.10",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4",
-      "Swashbuckle.AspNetCore >= 9.0.6"
+      "Swashbuckle.AspNetCore >= 9.0.6",
+      "TodoApi.Core >= 1.0.0",
+      "TodoApi.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3272,7 +3307,14 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Projects\\C#\\TodoApiSolution\\TodoApi.Core\\TodoApi.Core.csproj": {
+              "projectPath": "E:\\Projects\\C#\\TodoApiSolution\\TodoApi.Core\\TodoApi.Core.csproj"
+            },
+            "E:\\Projects\\C#\\TodoApiSolution\\TodoApi.Infrastructure\\TodoApi.Infrastructure.csproj": {
+              "projectPath": "E:\\Projects\\C#\\TodoApiSolution\\TodoApi.Infrastructure\\TodoApi.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -3300,10 +3342,6 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[9.0.10, )"
-          },
-          "Npgsql.EntityFrameworkCore.PostgreSQL": {
-            "target": "Package",
-            "version": "[9.0.4, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

@@ -1,12 +1,11 @@
 // TodoApi.Api/Program.cs
 using Microsoft.EntityFrameworkCore;
+using TodoApi.Infrastructure; // Add this
+
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddInfrastructure(builder.Configuration);
 
-// 1. Add services
-builder.Services.AddDbContext<TodoDbContext>(opt =>
-    opt.UseNpgsql(connectionString)); // Use Postgres!
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
