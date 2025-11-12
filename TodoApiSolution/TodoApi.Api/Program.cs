@@ -1,6 +1,6 @@
-// TodoApi.Api/Program.cs
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Infrastructure; // Add this
+using TodoApi.Core;
+using TodoApi.Infrastructure;
 
 
 var builder = WebApplication.CreateBuilder(args);
