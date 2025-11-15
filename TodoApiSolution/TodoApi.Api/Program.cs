@@ -4,12 +4,25 @@ using TodoApi.Infrastructure;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularDev", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") // ajuste conforme o endereço do seu Angular
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+              // .AllowCredentials(); // descomente se precisar enviar cookies/autenticação (ajuste origem se usar AllowCredentials)
+    });
+});
+
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseCors("AllowAngularDev");
 
 if (app.Environment.IsDevelopment())
 {

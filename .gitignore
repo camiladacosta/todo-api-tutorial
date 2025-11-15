@@ -1,0 +1,65 @@
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+**/bin/
+**/obj/
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+
+# User files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Dotnet
+project.lock.json
+project.fragment.lock.json
+*.dotsettings
+*.DotSettings.user
+
+# Publish output
+publish/
+*.Publish.xml
+
+# EF Core and runtime files
+*.db
+*.db-journal
+*.pid
+*.seed
+
+# Logs
+*.log
+logs/
+
+# Secret / local config
+secrets.json
+*.usersecrets
+appsettings.*.Local.json
+appsettings.*.Local.*.json
+
+# OS files
+Desktop.ini
+Thumbs.db
+.DS_Store
+
+# Rider / JetBrains / tooling
+*.iml
+*.idea/
+*.DotCover
+
+# VS build / cache
+*.vspscc
+*.vssscc
+
+# Ignore obj caches under obj (safe)
+obj/**/dotnet-*
+obj/**/*.cache
